@@ -6,8 +6,9 @@ const button = document.getElementById('button');
 const exitsButton = document.getElementById('exits');
 
 
-const maze = new Maze(15, 1024)
+const maze = new Maze(32, (20*20))
 maze.renderCells()
+
 
 button.addEventListener('click', () => {
 
@@ -16,7 +17,6 @@ button.addEventListener('click', () => {
   const start = `${x}/${y}`;
   maze.activeList.push(start)
   maze.seenList.push(start)
-
 
   maze.makeMaze();
 })

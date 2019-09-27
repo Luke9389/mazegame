@@ -1,58 +1,121 @@
-body{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
 }
 
 button {
-    width: 100px;
-    margin-top: 20px;
+  width: 100px;
+  margin-top: 20px;
 }
 
-#maze-container{
-    margin:auto;
-    display:flex;
-    flex-wrap:wrap;
-
-position:relative;
+#maze-container {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 .sq {
-    background-color:white;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
-    box-sizing: border-box;
-    margin:none;
+  background-color: black;
+  box-sizing: border-box;
+  margin: none;
+  width: 64px;
+  height: 64px;
+  background-image: url('../assets/cross.png');
+  background-size: 100%;
+}
+
+.b {
+  background-image: url('../assets/b.png');
+}
+
+.l {
+  background-image: url('../assets/l.png');
+}
+
+.r {
+  background-image: url('../assets/r.png');
+}
+
+.t {
+  background-image: url('../assets/t.png');
+}
+
+.b.l {
+  background-image: url('../assets/bl.png');
+}
+
+.r.b {
+  background-image: url('../assets/rb.png');
+}
+
+.r.l {
+  background-image: url('../assets/rl.png');
+}
+
+.t.l {
+  background-image: url('../assets/tl.png');
+}
+
+.t.r {
+  background-image: url('../assets/tr.png');
+}
+
+.t.b {
+  background-image: url('../assets/tb.png');
+}
+
+.t.b.l {
+  background-image: url('../assets/tbl.png');
+}
+
+.r.b.l {
+  background-image: url('../assets/rbl.png');
+}
+
+.t.l.r {
+  background-image: url('../assets/tlr.png');
+}
+
+.t.r.b {
+  background-image: url('../assets/trb.png');
+}
+
+.top {
+  border-top: 2px solid black;
+}
+
+.bottom {
+  border-bottom: 2px solid black;
+}
+
+.left {
+  border-left: 2px solid black;
+}
+
+.right {
+  border-right: 2px solid black;
+}
+
+.player {
+  background-color: rgba(0, 128, 0, 0.534);
+  position: absolute;
+}
+
+.goal {
+  background-color: rgba(255, 0, 0, 0.507);
 }
 
 .active {
-    background-color:hotpink;
+  background-color: hotpink;
 }
 
 .seen {
-    background-color:pink;
-}
-
-.top{
-    border-top: 2px solid black
-}
-.bottom{
-    border-bottom: 2px solid black
-}
-.left{
-    border-left: 2px solid black
-}
-.right{
-    border-right: 2px solid black
-}
-
-.player{
-    background-color:rgba(0, 128, 0, 0.534);
-    position: absolute;
-
-}
-.goal{
-    background-color:rgba(255, 0, 0, 0.507);
+  background-color: pink;
 }
