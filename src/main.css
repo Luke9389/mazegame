@@ -19,6 +19,23 @@ button {
   display: flex;
   flex-wrap: wrap;
   position: relative;
+  /*Silly Stuff*/
+  background-image: linear-gradient(to left, #5EBD3E, #FFB900, #F78200, #E23838, #973999, #009CDF, #5EBD3E);
+  background-size: 200%;
+  background-position: 30% 50%;
+  animation-name: move-gradient;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 7s;
+}
+
+@keyframes move-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .sq {
@@ -30,6 +47,10 @@ button {
   background-image: url('../assets/cross.png');
   background-size: 100%;
 }
+
+/* Really elegant solution here! */
+
+/*#region*/
 
 .b {
   background-image: url('../assets/b.png');
@@ -87,6 +108,8 @@ button {
   background-image: url('../assets/trb.png');
 }
 
+/*#endregion*/
+
 .top {
   border-top: 2px solid black;
 }
@@ -114,6 +137,7 @@ button {
 
 .active {
   background-color: hotpink;
+  border-radius: 16px;
 }
 
 .seen {
