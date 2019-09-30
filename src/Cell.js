@@ -3,7 +3,9 @@ class Cell {
     this.x = x;
     this.y = y;
     this.cellSize = cellSize;
-    this.id = `${this.x}/${this.y}`
+    this.id = `${this.x},${this.y}`
+    this.neighbors = [];
+    this.overpass = false;
     this.active = false;
     this.seen = false;
   }
@@ -15,6 +17,7 @@ class Cell {
     div.style.width = `${this.cellSize}px`;
     return div
   }
+
   on() {
     document.getElementById(this.id).classList.add('on')
   }
@@ -43,33 +46,33 @@ class Cell {
   }
 
   removeBorder(coords) {
-    const newX = coords.split('/')[0];
-    const newY = coords.split('/')[1];
+    const newX = coords.split(',')[0];
+    const newY = coords.split(',')[1];
 
     if (newX > this.x) {
-      document.getElementById(this.id).style.borderRight = 'none';
-      document.getElementById(`${this.x + 1}/${this.y}`).style.borderLeft = 'none';
+      // document.getElementById(this.id).style.borderRight = 'none';
+      // document.getElementById(`${this.x + 1}/${this.y}`).style.borderLeft = 'none';
       document.getElementById(this.id).classList.remove('r');
-      document.getElementById(`${this.x + 1}/${this.y}`).classList.remove('l');
+      document.getElementById(`${this.x + 1},${this.y}`).classList.remove('l');
 
     }
     if (newX < this.x) {
-      document.getElementById(this.id).style.borderLeft = 'none';
-      document.getElementById(`${this.x - 1}/${this.y}`).style.borderRight = 'none';
+      // document.getElementById(this.id).style.borderLeft = 'none';
+      // document.getElementById(`${this.x - 1}/${this.y}`).style.borderRight = 'none';
       document.getElementById(this.id).classList.remove('l');
-      document.getElementById(`${this.x - 1}/${this.y}`).classList.remove('r');
-    }
-    if (newY > this.y) {
-      document.getElementById(this.id).style.borderBottom = 'none';
-      document.getElementById(`${this.x}/${this.y + 1}`).style.borderTop = 'none';
-      document.getElementById(this.id).classList.remove('b');
-      document.getElementById(`${this.x}/${this.y + 1}`).classList.remove('t');
+      document.getElementById(`${this.x - 1},${this.y}`).classList.remove('r');
     }
     if (newY < this.y) {
-      document.getElementById(this.id).style.borderTop = 'none';
-      document.getElementById(`${this.x}/${this.y - 1}`).style.borderBottom = 'none';
+      // document.getElementById(this.id).style.borderBottom = 'none';
+      // document.getElementById(`${this.x}/${this.y + 1}`).style.borderTop = 'none';
+      document.getElementById(this.id).classList.remove('b');
+      document.getElementById(`${this.x},${this.y - 1}`).classList.remove('t');
+    }
+    if (newY > this.y) {
+      // document.getElementById(this.id).style.borderTop = 'none';
+      // document.getElementById(`${this.x}/${this.y - 1}`).style.borderBottom = 'none';
       document.getElementById(this.id).classList.remove('t');
-      document.getElementById(`${this.x}/${this.y - 1}`).classList.remove('b');
+      document.getElementById(`${this.x},${this.y + 1}`).classList.remove('b');
     }
   }
 

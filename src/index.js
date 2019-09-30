@@ -6,15 +6,15 @@ const button = document.getElementById('button');
 const exitsButton = document.getElementById('exits');
 
 
-const maze = new Maze(32, (20*20))
+const maze = new Maze(32, 20)
 maze.renderCells()
 
 
 button.addEventListener('click', () => {
 
-  let x = Math.floor(Math.random() * Math.sqrt(maze.cellCount));
-  let y = Math.floor(Math.random() * Math.sqrt(maze.cellCount));
-  const start = `${x}/${y}`;
+  let x = Math.ceil(Math.random() * Math.sqrt(maze.cellCount));
+  let y = Math.ceil(Math.random() * Math.sqrt(maze.cellCount));
+  const start = `${x},${y}`;
   maze.activeList.push(start)
   maze.seenList.push(start)
 
